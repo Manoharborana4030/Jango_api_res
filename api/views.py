@@ -11,5 +11,5 @@ from django.db.models import Sum
 
 
   
-def home(request):
+def homepage(request):
     return render(request,'api/home.html')
