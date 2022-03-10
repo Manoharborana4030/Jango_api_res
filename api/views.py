@@ -25,7 +25,7 @@ class restaurant(APIView):
 			return Response({'msg':'Restaurant has been added'})
 		return Response(serializer.errors)
 
-class category(APIView):
+class cat(APIView):
 	def get(self,request):
 		obj = Cat_Res.objects.all()
 		serializer = CatSerializer(obj,many=True)

@@ -23,7 +23,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
    path('restaurant/',views.restaurant.as_view()),
-   path('cat/',views.category.as_view()),
+   path('cat/',views.cat.as_view()),
 ]        
   
 
