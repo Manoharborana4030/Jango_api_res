@@ -9,5 +9,31 @@ from .serializers import all_iteam_with_cat_using_res_Serializer,Res_Greater_500
 from rest_framework import viewsets, generics
 from django.db.models import Sum
 
+class restaurant(APIView):
+	def get(self,request):
+		obj = Restaurant.objects.all()
+		serializer = RestaurantSerializer(obj,many=True)
+		return Response(serializer.data)
+	
+	def post(self,request):
+		serializer = RestaurantSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response({'msg':'Restaurant has been added'})
+		return Response(serializer.errors)
 
 
+class IteamData(GenericAPIView):
+    serializer_class=IteamSSerializer
+    permission_classes = (IsAuthenticated,)    
+    def get(self,request):
+        iteam=Iteams.objects.all()
+        serializer=IteamSSerializer(iteam,many=True)
+        return Response(serializer.data)
+       
+    def post(self,request):
+        serializer=IteamSSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'msg':'Data Inserted'})
+        return(serializer.errors)
