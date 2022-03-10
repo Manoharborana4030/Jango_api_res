@@ -1,4 +1,5 @@
 from urllib import response
+from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from rest_framework.views import APIView
 from .models import *
@@ -11,6 +12,10 @@ from rest_framework import viewsets, generics
 from django.db.models import Sum
 
 
+
+  
+def homepage(request):
+    return render(request,'api/home.html')
 
 class restaurant(APIView):
 	def get(self,request):
@@ -53,3 +58,4 @@ class category(APIView):
 			serializer.save()
 			return Response({'msg':'category has been added'})
 		return Response(serializer.errors)
+
