@@ -12,7 +12,6 @@ from rest_framework import viewsets, generics
 from django.db.models import Sum
 
 
-<<<<<<< HEAD
 class restaurant(APIView):
 	def get(self,request):
 		obj = Restaurant.objects.all()
@@ -37,7 +36,6 @@ class cat(APIView):
 		if serializer.is_valid():
 			serializer.save()
 			return Response({'msg':'category has been added'})
-=======
 
 class IteamData(GenericAPIView):
     serializer_class=IteamSSerializer
@@ -54,4 +52,3 @@ class IteamData(GenericAPIView):
             return Response({'msg':'Data Inserted'})
         return(serializer.errors)
 
->>>>>>> Manohar
