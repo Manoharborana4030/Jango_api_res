@@ -26,7 +26,6 @@ urlpatterns = [
    path('restaurant/',views.restaurant.as_view()),
    path('cat/',views.category.as_view()),
    path('',views.homepage,name='home'),
-   #path('apioverview/',views.Apioverview.as_view(),name='api-overview'),
    path('iteam_data/',views.IteamData.as_view(),name='iteam-all-data'),
    
 
