@@ -8,3 +8,13 @@ class IteamSSerializer(serializers.ModelSerializer):
     class Meta:
         model=Iteams
         fields='__all__'
+
+class RestaurantSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Restaurant
+		fields = '__all__' 
+
+class CatSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Cat_Res
+		fields = '__all__' 
