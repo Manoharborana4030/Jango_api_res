@@ -12,11 +12,6 @@ from rest_framework import viewsets, generics
 from django.db.models import Sum
 
 
-
-  
-def homepage(request):
-    return render(request,'api/home.html')
-
 class restaurant(APIView):
 	def get(self,request):
 		obj = Restaurant.objects.all()
@@ -30,6 +25,17 @@ class restaurant(APIView):
 			return Response({'msg':'Restaurant has been added'})
 		return Response(serializer.errors)
 
+class cat(APIView):
+	def get(self,request):
+		obj = Cat_Res.objects.all()
+		serializer = CatSerializer(obj,many=True)
+		return Response(serializer.data)
+	
+	def post(self,request):
+		serializer = CatSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response({'msg':'category has been added'})
 
 class IteamData(GenericAPIView):
     serializer_class=IteamSSerializer
@@ -45,17 +51,4 @@ class IteamData(GenericAPIView):
             serializer.save()
             return Response({'msg':'Data Inserted'})
         return(serializer.errors)
-
-class category(APIView):
-	def get(self,request):
-		obj = Cat_Res.objects.all()
-		serializer = CatSerializer(obj,many=True)
-		return Response(serializer.data)
-	
-	def post(self,request):
-		serializer = CatSerializer(data=request.data)
-		if serializer.is_valid():
-			serializer.save()
-			return Response({'msg':'category has been added'})
-		return Response(serializer.errors)
 
