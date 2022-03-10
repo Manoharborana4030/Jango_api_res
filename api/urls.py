@@ -22,9 +22,12 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-   path('apioverview/',views.Apioverview.as_view(),name='api-overview'),
+   path('',views.home,name='home'),
+  
    
 ]        
+  
+
 
 # router = DefaultRouter()
 # router.register(r'restaurants', RestaurantViewSet, basename='restaurants')
