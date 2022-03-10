@@ -22,7 +22,7 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-   path('',views.home,name='home'),
+   path('',views.homepage,name='home'),
   
    
 ]        
