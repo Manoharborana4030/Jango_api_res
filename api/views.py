@@ -12,20 +12,6 @@ from django.db.models import Sum
 
 
 
-class restaurant(APIView):
-	def get(self,request):
-		obj = Restaurant.objects.all()
-		serializer = RestaurantSerializer(obj,many=True)
-		return Response(serializer.data)
-	
-	def post(self,request):
-		serializer = RestaurantSerializer(data=request.data)
-		if serializer.is_valid():
-			serializer.save()
-			return Response({'msg':'Restaurant has been added'})
-		return Response(serializer.errors)
-
-
 class IteamData(GenericAPIView):
     serializer_class=IteamSSerializer
     permission_classes = (IsAuthenticated,)    
@@ -41,15 +27,3 @@ class IteamData(GenericAPIView):
             return Response({'msg':'Data Inserted'})
         return(serializer.errors)
 
-class category(APIView):
-	def get(self,request):
-		obj = Cat_Res.objects.all()
-		serializer = CatSerializer(obj,many=True)
-		return Response(serializer.data)
-	
-	def post(self,request):
-		serializer = CatSerializer(data=request.data)
-		if serializer.is_valid():
-			serializer.save()
-			return Response({'msg':'category has been added'})
-		return Response(serializer.errors)
