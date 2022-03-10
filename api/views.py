@@ -6,7 +6,6 @@ from .serializers import *
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
-from .serializers import IteamSSerializer
 from rest_framework import viewsets, generics
 from django.db.models import Sum
 
