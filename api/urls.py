@@ -22,7 +22,8 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-   path('apioverview/',views.Apioverview.as_view(),name='api-overview'),
+   #path('apioverview/',views.Apioverview.as_view(),name='api-overview'),
+   path('iteam_data/',views.IteamData.as_view(),name='iteam-all-data'),
    
 ]        
 
